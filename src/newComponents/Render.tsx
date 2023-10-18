@@ -1,35 +1,42 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
+import {Button} from "./Button";
 
 type NewComponentsPropsType = {
-    addOne: () => void
-    count: number
-    reset: () => void
-    minCount: number
-    maxCount: number
+    value: number
+    minValue: number
+    maxValue: number
+    setValue: (minValue:number) => void
 }
 
-export const NewComponents = (props: NewComponentsPropsType) => {
-    const buttonAddOneHandler = () => props.addOne()
-    const buttonResetHandler = () => props.reset()
+export const Render = (props: NewComponentsPropsType) => {
+
+    const minCount: number = props.value
+    const maxCount: number = props.maxValue
+
+    const [count, setCount] = useState<number>(0)
+
+    function addOne() {
+        if (minCount < maxCount) {
+            props.setValue(props.value + 1)
+        }
+    }
+    function reset() {
+        props.setValue(props.minValue)
+    }
 
     return (
-        <div className='count'>
-            <div className="dial">
+            <div className='count'>
+                <div className="dial">
                 <span
-                    className={props.count === props.maxCount ? "dial1" : ""}>
-                    {props.count}</span>
+                    className={count === maxCount || count === minCount ? "dial1" : ""} >
+                   {props.value} </span>
+                </div>
+                <div className="buttons">
+                    <Button name={"inc"} callBack={addOne} disable={ count === maxCount} />
+                    <Button name={"reset"} callBack={reset} disable={count === minCount}/>
+                </div>
             </div>
-            <div className="buttons">
-                <button
-                    disabled={props.count === props.maxCount}
-                    onClick={buttonAddOneHandler}>inc</button>
-                <button
-                    disabled={props.count === props.minCount}
-                    onClick={ buttonResetHandler }>reset</button>
-            </div>
-        </div>
 
     );
 };
 
-export default NewComponents;
