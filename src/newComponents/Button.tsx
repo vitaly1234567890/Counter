@@ -7,6 +7,7 @@ type ButtonProps = {
 }
 
 export const Button: FC<ButtonProps> = ({name, disable, callBack}) => {
+
     return (
             <button disabled={disable} onClick={callBack}>{name}</button>
     );

@@ -1,3 +1,8 @@
+.counter {
+  display: flex;
+
+}
+
 button {
   background-color: aqua;
   margin: 5px;
@@ -47,6 +52,11 @@ button {
   color: red;
 }
 
+.dial2 {
+  color: red;
+  font-size: 18px;
+}
+
 .settertext {
   display: flex;
   justify-content: space-between;
@@ -60,5 +70,12 @@ button {
 .setterInput {
   width: 60px;
   margin-left: 30px;
+}
+
+.setterInputError {
+  width: 60px;
+  margin-left: 30px;
+  color: red;
+  border-color: red;
 }
 
