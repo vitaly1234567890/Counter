@@ -1,15 +1,16 @@
 import React from 'react';
 import './App.css';
-import {SetterInput} from "./newComponents/SetterInput";
+import {SetterInputWithRedux} from "./newComponents/SetterInputWithRedux";
+import {RenderWithRedux} from "./newComponents/RenderWithRedux";
 
 
 function App() {
-
-  return (
-<div className="app">
-  <SetterInput/>
-</div>
-  );
+    return (
+        <div className="app">
+            <SetterInputWithRedux/>
+            <RenderWithRedux />
+        </div>
+    );
 }
 
 export default App;

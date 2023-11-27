@@ -36,6 +36,15 @@ button {
   align-items: center;
 }
 
+.count1 {
+  width: 200px;
+  border-radius: 5px;
+  border: 2px solid aqua;
+  height: 160px;
+  margin-left: 50px;
+  align-items: center;
+}
+
 .dial {
   display: flex;
   justify-content: center;
@@ -55,6 +64,10 @@ button {
 .dial2 {
   color: red;
   font-size: 18px;
+}
+
+.dial3 {
+  font-size: 16px;
 }
 
 .settertext {
