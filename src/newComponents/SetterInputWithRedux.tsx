@@ -1,4 +1,4 @@
-import React, {ChangeEvent} from 'react';
+import React, {ChangeEvent, useCallback} from 'react';
 import {Button} from "./Button";
 import {Input} from "./Input";
 import {useDispatch, useSelector} from "react-redux";
@@ -16,17 +16,19 @@ export const SetterInputWithRedux = () => {
 
     const dispatch = useDispatch()
 
-    const onChangeHandlerMaxCount = (event: ChangeEvent<HTMLInputElement>) => {
+    const onChangeHandlerMaxCount = useCallback ((event: ChangeEvent<HTMLInputElement>) => {
+        console.log("MaxCount")
         dispatch(maxInputValueAC(event.currentTarget.value))
-    }
+    },[dispatch])
 
-    const onChangeHandlerMinCount = (event: ChangeEvent<HTMLInputElement>) => {
+    const onChangeHandlerMinCount = useCallback ((event: ChangeEvent<HTMLInputElement>) => {
+        console.log("MinCount")
         dispatch(minInputValueAC(event.currentTarget.value))
-    }
+    },[dispatch])
 
-    const callBackHandler = () => {
+    const callBackHandler = useCallback(() => {
         dispatch(setAC(minValue))
-    }
+    },[dispatch, minValue])
 
     const inputError = minValue >= maxValue || minValue < 0 ? 'setterInputError' : "setterInput"
 

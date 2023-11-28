@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useCallback} from 'react';
 import {Button} from "./Button";
 import {useDispatch, useSelector} from "react-redux";
 import {AppRootStateType} from "../state/store";
@@ -12,15 +12,15 @@ export const RenderWithRedux = () => {
 
     const dispatch = useDispatch()
 
-    function addOne() {
+    const addOne = useCallback(() => {
         if (minValue < maxValue) {
             dispatch(addOneAC(value))
         }
-    }
+    },[dispatch, value])
 
-    function reset() {
+    const reset = useCallback(() => {
         dispatch(resetAC(minValue))
-    }
+    },[dispatch, minValue])
 
     const error1 =
         minValue >= maxValue || minValue < 0 || maxValue > 10000 ?

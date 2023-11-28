@@ -1,4 +1,4 @@
-import React, {FC} from 'react';
+import React, {FC, memo} from 'react';
 
 type ButtonProps = {
     name: string
@@ -6,10 +6,10 @@ type ButtonProps = {
     disable?: boolean
 }
 
-export const Button: FC<ButtonProps> = ({name, disable, callBack}) => {
-
+export const Button: FC<ButtonProps> = memo(({name, disable, callBack}) => {
+    console.log('Button')
     return (
             <button disabled={disable} onClick={callBack}>{name}</button>
     );
-};
+});
 
