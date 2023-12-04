@@ -8,7 +8,6 @@ interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
                                            value,
                                            type,
                                            ...rest}) => {
-     console.log("Input")
     return (
         <input onChange={onChange} value={value} {...rest} type={type} />
     );

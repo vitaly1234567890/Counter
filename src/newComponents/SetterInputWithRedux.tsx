@@ -17,12 +17,10 @@ export const SetterInputWithRedux = () => {
     const dispatch = useDispatch()
 
     const onChangeHandlerMaxCount = useCallback ((event: ChangeEvent<HTMLInputElement>) => {
-        console.log("MaxCount")
         dispatch(maxInputValueAC(event.currentTarget.value))
     },[dispatch])
 
     const onChangeHandlerMinCount = useCallback ((event: ChangeEvent<HTMLInputElement>) => {
-        console.log("MinCount")
         dispatch(minInputValueAC(event.currentTarget.value))
     },[dispatch])
 

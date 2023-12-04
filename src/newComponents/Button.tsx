@@ -7,7 +7,6 @@ type ButtonProps = {
 }
 
 export const Button: FC<ButtonProps> = memo(({name, disable, callBack}) => {
-    console.log('Button')
     return (
             <button disabled={disable} onClick={callBack}>{name}</button>
     );
